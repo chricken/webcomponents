@@ -1,0 +1,14 @@
+@import '/assets/js/webcomponents/general.css';
+
+.container {
+}
+
+.sliderBar {
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    height:2px;
+    background-color: #000;
+    top:25px;
+    transform: translateY(-1px);
+}
