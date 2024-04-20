@@ -1,6 +1,7 @@
 'use strict';
 
 import template from './template.js';
+import settings from './settings.js';
 
 class rangeSingle extends HTMLElement {
     constructor() {
@@ -39,8 +40,30 @@ class rangeSingle extends HTMLElement {
     // Eventlistener für veränderte Attribute
     attributeChangedCallback(attrName, oldVal, currentVal) {
     }
+
     // Eventlistener für Mounting
     connectedCallback() {
+        let elGrab = this.root.querySelector('.sliderGrab');
+        let grabbing = false;
+
+        document.body.addEventListener('mousemove', evt => {
+            if (grabbing) {
+                let currentX = evt.pageX;
+                let difference = currentX - settings.startX;
+                elGrab.style.transform = `translateX(${difference}px) translateY(-10px)`
+                // console.log(difference);
+            }
+        })
+
+        // elGrab.addEventListener('mousedown', evt => {
+        elGrab.addEventListener('mousedown', evt => {
+            grabbing = true
+            settings.startX = evt.pageX;
+        })
+        document.body.addEventListener('mouseup', evt => {
+            grabbing = false
+        })
+
     }
     // Eventlistener für Unmounting
     disconnectedCallback() {

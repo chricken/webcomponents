@@ -1,14 +1,31 @@
 @import '/assets/js/webcomponents/general.css';
 
-.container {
-}
+.container {}
 
 .sliderBar {
     position: relative;
     margin-left: 10px;
-    margin-right: 10px;
-    height:2px;
+    /* margin-right: 90px; */
+    height: 2px;
     background-color: #000;
-    top:25px;
+    top: 25px;
     transform: translateY(-1px);
+}
+
+.sliderGrab {
+    position: relative;
+}
+
+.sliderGrab:hover {
+    
+}
+
+
+.sliderText {
+    position: absolute;
+    right: 10px;
+    /* width:60px; */
+    top: 24px;
+    height: 20px;
+    transform: translateY(-10px);
 }
